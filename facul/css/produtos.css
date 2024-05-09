@@ -1,0 +1,140 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+}
+
+#cabeca {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #333;
+    color: #fff;
+    font-size: 16px;
+}
+
+#logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+#telaCadastro {
+    text-align: center;
+    margin-top: 20px; /* Adiciona espaço acima */
+}
+
+#telaCadastro a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    background-color: #4CAF50; /* Cor de fundo */
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s; /* Transição suave */
+}
+
+#telaCadastro a:hover {
+    background-color: #45a049; /* Altera a cor de fundo ao passar o mouse */
+}
+
+#divBusca {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top: 20px; /* Adiciona espaço acima */
+}
+
+#txtBusca {
+    flex: 1;
+    border: none;
+    padding: 12px;
+    font-size: 16px;
+}
+
+#btnBusca {
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+#btnBusca:hover {
+    background-color: #45a049; /* Altera a cor de fundo ao passar o mouse */
+}
+
+#txtBusca:focus {
+    outline: none; /* Remove o contorno ao focar */
+}
+
+
+#btnSair {
+    background-color: #f44336;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#produtosContainer {
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: auto; /* Adiciona uma barra de rolagem se necessário */
+}
+
+h2 {
+    color: #4CAF50;
+    margin-bottom: 20px;
+}
+
+.produto {
+    margin-top: 5px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+    max-width: 300px; /* Define a largura máxima para cada produto */
+    margin-right: 10px; /* Adiciona um espaço entre os produtos */
+    float: left; /* Permite que os produtos flutuem à esquerda */
+}
+
+.produto img {
+    display: block;
+    margin: 0 auto 10px;
+    max-width: 100%;
+    height: auto;
+    cursor: pointer;
+}
+
+.produto p {
+    margin: 0;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#rodape {
+    background-color: #333;
+    padding: 15px;
+    text-align: center;
+    clear: both; /* Limpa as flutuações */
+    margin-top: 20px; /* Adiciona espaço entre o conteúdo e o rodapé */
+}
+
+#limparP button {
+    background-color: #f44336;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}

@@ -1,0 +1,107 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    width: 400px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#cabeca {
+    position: fixed; /* Define a posição fixa */
+    top: 0; /* Coloca o cabeçalho no topo da página */
+    width: 100%; /* Define a largura total */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #006cb4;
+    color: #fff;
+    font-size: 18px; /* Aumenta o tamanho da fonte */
+}
+
+#logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color:  #006cb4;/* Cor do texto */
+}
+
+label {
+    display: block;
+    margin-bottom: 12px;
+    font-size: 14px;
+    color: #333; /* Cor do texto */
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+button[type="button"],
+button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #ff8a00; /* Cor de fundo do botão */
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+button[type="button"]:hover,
+button[type="submit"]:hover {
+    background-color: #e57f00; /* Cor de fundo do botão ao passar o mouse */
+}
+
+p {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 14px;
+    color: #666; /* Cor do texto */
+}
+
+a {
+    color: #007bff; /* Cor do link */
+    text-decoration: none;
+    font-size: 12px;
+    display: block;
+    margin-top: 20px;
+    text-align: center;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+

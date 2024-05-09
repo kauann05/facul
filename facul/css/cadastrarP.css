@@ -1,0 +1,95 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+}
+
+#cabeca {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #006cb4;
+    color: #fff;
+    font-size: 18px; /* Aumenta o tamanho da fonte */
+}
+
+#logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+
+.container {
+    max-width: 400px; /* Reduz a largura máxima */
+    height: auto; /* Define a altura automática para ajustar ao conteúdo */
+    margin: 30px auto;
+    padding: 30px; /* Diminui o preenchimento interno */
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+h2 {
+    color: #006cb4;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#uploadForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label {
+    margin-bottom: 3px;
+    color: #333;
+    font-weight: bold;
+}
+
+/* Estilo dos inputs */
+input[type="text"],
+input[type="file"],
+input[type="number"] {
+    padding: 8px; /* Aumenta o tamanho do padding */
+    width: calc(100% - 14px); /* Ajusta a largura do input */
+    margin-bottom: 0.1px; /* Ajusta o espaço entre os inputs */
+    border: 1px solid #ccc; /* Cor da borda */
+    border-radius: 5px; /* Borda arredondada */
+    font-family: Arial, sans-serif; /* Fonte */
+    font-size: 14px; /* Tamanho da fonte */
+    background-color: #f9f9f9; /* Cor de fundo */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Transições suaves */
+}
+
+/* Estilo do input quando em foco */
+input[type="text"]:focus,
+input[type="file"]:focus,
+input[type="number"]:focus {
+    border-color: #007bff; /* Cor da borda quando em foco */
+    box-shadow: 0 0 6px rgba(0, 123, 255, 0.5); /* Sombra quando em foco */
+}
+
+
+button {
+    padding: 12px 20px;
+    width: 100%;
+    background-color: #006cb4;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #005c90;
+}

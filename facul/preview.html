@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/produtos.css">
+    <title>Visualizar Produtos</title>
+    <style>
+        /* Estilo para as imagens dos produtos */
+        .produto img {
+            display: block; /* Para garantir que cada imagem esteja em sua própria linha */
+            margin-bottom: 20px; /* Adiciona um espaçamento abaixo de cada imagem */
+            max-width: 300px; /* Defina o tamanho máximo da imagem conforme necessário */
+            max-height: 300px; /* Defina o tamanho máximo da imagem conforme necessário */
+        }
+    </style>
+</head>
+<body>
+<header id="cabeca">
+
+        <div id="logo">EletroStudo!</div>
+       
+    <div id="divBusca">
+        <input type="text" id="txtBusca" placeholder="Buscar produtos...">
+        <button id="btnBusca">Buscar</button>
+    </div>
+    <button onclick="logout()" id="btnSair">SAIR</button>
+</header>
+<div id="telaCadastro">
+    <a href="cadastroP.html">Cadastre seu produto aqui!</a>
+</div>
+
+<section id="produtosContainer">
+    <h2>Produtos</h2>
+    <div id="produtos"></div>
+</section>
+
+<footer id="rodape">
+    <div id="limparP">
+        <button onclick="limparLocalStorage()" id="btnLimpar">Limpar Local Storage</button>
+    </div>
+</footer>
+
+<script src="js/script.js"></script>
+
+<script>
+    // Função para exibir os produtos armazenados
+    function exibirProdutos() {
+        const produtosContainer = document.getElementById('produtosContainer');
+        produtosContainer.innerHTML = ''; // Limpa o container antes de adicionar os produtos
+
+        // Array para armazenar os produtos
+        let produtos = [];
+
+        // Percorre os dados no localStorage
+        for (let i = 0; i < localStorage.length; i++) {
+            const key = localStorage.key(i);
+            if (key.startsWith('produto_')) { // Verifica se a chave começa com 'produto_'
+                const dados = JSON.parse(localStorage.getItem(key));
+                produtos.push(dados);
+            }
+        }
+
+        // Ordena os produtos pelo ID
+        produtos.sort((a, b) => {
+            return parseInt(a.id) - parseInt(b.id);
+        });
+
+        // Exibe os produtos na ordem ordenada
+        produtos.forEach(produto => {
+            const produtoDiv = document.createElement('div');
+            produtoDiv.classList.add('produto');
+
+            const imagem = document.createElement('img');
+            imagem.src = produto.imagem;
+            produtoDiv.appendChild(imagem);
+
+            const id = document.createElement('p');
+            id.textContent= 'ID: ' + produto.id;
+            produtoDiv.appendChild(id);
+
+            const nome = document.createElement('p');
+            nome.textContent = 'Nome: ' + produto.nome;
+            produtoDiv.appendChild(nome);
+
+            const modelo = document.createElement('p');
+            modelo.textContent= 'Modelo: ' + produto.modelo;
+            produtoDiv.appendChild(modelo);
+
+            const preco = document.createElement('p');
+            preco.textContent = 'Preço: R$' + parseFloat(produto.preco).toFixed(2); // Formata o preço como decimal com 2 casas decimais
+            produtoDiv.appendChild(preco);
+
+            produtosContainer.appendChild(produtoDiv);
+        });
+    }
+
+    // Função para limpar o localStorage
+    function limparLocalStorage() {
+        localStorage.clear();
+        exibirProdutos(); // Atualiza a exibição após limpar
+    }
+
+    // Função para buscar produtos por ID ou Nome
+    document.getElementById('txtBusca').addEventListener('input', function() {
+        const termoBusca = document.getElementById('txtBusca').value.toLowerCase(); // Convertendo o termo de busca para minúsculas
+
+        const produtosContainer = document.getElementById('produtosContainer');
+        produtosContainer.innerHTML = ''; // Limpa o container antes de adicionar os produtos
+
+        // Array para armazenar os produtos que correspondem ao termo de busca
+        let produtosEncontrados = [];
+
+        // Percorre os dados no localStorage
+        for (let i = 0; i < localStorage.length; i++) {
+            const key = localStorage.key(i);
+            if (key.startsWith('produto_')) { // Verifica se a chave começa com 'produto_'
+                const dados = JSON.parse(localStorage.getItem(key));
+
+                // Verifica se o termo de busca corresponde ao ID ou ao Nome do produto
+                if (dados.id.toLowerCase().includes(termoBusca) || dados.nome.toLowerCase().includes(termoBusca)) {
+                    produtosEncontrados.push(dados);
+                }
+            }
+        }
+
+        // Exibe os produtos encontrados
+        produtosEncontrados.forEach(produto => {
+            const produtoDiv = document.createElement('div');
+            produtoDiv.classList.add('produto');
+
+            const imagem = document.createElement('img');
+            imagem.src = produto.imagem;
+            produtoDiv.appendChild(imagem);
+
+            const id = document.createElement('p');
+            id.textContent= 'ID: ' + produto.id;
+            produtoDiv.appendChild(id);
+
+            const nome = document.createElement('p');
+            nome.textContent = 'Nome: ' + produto.nome;
+            produtoDiv.appendChild(nome);
+
+            const modelo = document.createElement('p');
+            modelo.textContent= 'Modelo: ' + produto.modelo;
+            produtoDiv.appendChild(modelo);
+
+            const preco = document.createElement('p');
+            preco.textContent = 'Preço: R$' + parseFloat(produto.preco).toFixed(2); // Formata o preço como decimal com 2 casas decimais
+            produtoDiv.appendChild(preco);
+
+            produtosContainer.appendChild(produtoDiv);
+        });
+
+        if (produtosEncontrados.length === 0) {
+            alert('Nenhum produto encontrado.');
+        }
+    });
+
+    exibirProdutos(); // Chama a função para exibir os produtos ao carregar a página
+</script>
+</body>
+</html>
+
